@@ -1,0 +1,25 @@
+name: Weekly README Update
+
+on:
+  schedule:
+    - cron: "0 0 * * MON" # Every Monday at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README date
+        run: |
+          DATE=$(date +'%B %d, %Y')
+          sed -i "s/Last updated: .*/Last updated: ${DATE}/" README.md
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: weekly auto-update README date"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
