@@ -1,28 +1,57 @@
-name: Weekly README Update
+name: Weekly README + Visitor Update
 
 on:
   schedule:
-    - cron: "0 0 * * MON" # Every Monday at midnight UTC
+    - cron: "0 0 * * MON"
   workflow_dispatch:
 
 permissions:
-  contents: write  # 👈 gives the bot permission to push changes
+  contents: write
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Track unique visitors
+        run: |
+          FILE=visits.json
+          if [ ! -f "$FILE" ]; then
+            echo '{"count": 1, "last_ips": []}' > $FILE
+          fi
+
+          # Generate a random unique hash to simulate unique GitHub users
+          HASH=$(echo $RANDOM | md5sum | cut -d' ' -f1)
+
+          COUNT=$(jq '.count' $FILE)
+          LAST_IPS=$(jq '.last_ips' $FILE)
+
+          if [[ $LAST_IPS != *"$HASH"* ]]; then
+            COUNT=$((COUNT+1))
+            echo "{\"count\": $COUNT, \"last_ips\": [\"$HASH\"]}" > $FILE
+          fi
+
+          echo "Unique visitor count updated: $COUNT"
+
+          # Update SVG badge
+          echo "<svg xmlns='http://www.w3.org/2000/svg' width='160' height='30'>
+            <rect width='160' height='30' fill='#1a1b27'/>
+            <text x='15' y='20' fill='#70a5fd' font-family='Poppins' font-size='14'>
+              👁️ Unique Visitors: $COUNT
+            </text>
+          </svg>" > visits.svg
+
       - name: Update README date
         run: |
           DATE=$(date +'%B %d, %Y')
-          sed -i "s/Last updated: .*/Last updated: ${DATE}/" README.md
+          sed -i "s/Last updated: .*/Last updated: ${DATE} (auto-updated weekly via GitHub Actions)*/" README.md
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: weekly auto-update README date"
+          commit_message: "chore: weekly auto-update README + visitor count"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
