@@ -6,9 +6,9 @@
 ### 💡 About Me  
 🎓 MCA Graduate — Cochin University of Science and Technology (2023–2025)  
 💻 Full-Stack Developer skilled in **ASP.NET Core**, **React**, and **React Native**  
-🐳 Experienced in **Dockerized deployments** and **CI/CD pipelines** using **GitHub Actions**  
-🚀 Passionate about **building scalable, data-driven, and user-focused apps**  
-📱 Currently developing **Macroo**, a next-gen **AI-powered diet & nutrition tracker** using **React Native**, **Supabase**, and **PostgreSQL**
+🐳 Experienced with **Dockerized deployments** and **GitHub Actions CI/CD pipelines**  
+📱 Currently building **Macroo**, an AI-powered **diet & nutrition tracker** using **React Native**, **Supabase**, and **PostgreSQL**  
+🧠 Passionate about crafting **clean, scalable, and data-driven solutions** across web and mobile platforms  
 
 ---
 
@@ -16,37 +16,56 @@
 
 **Languages:**  
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=c-sharp&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=openjdk&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
 **Frontend & Mobile:**  
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 
-**Backend & DevOps:**  
+**Backend & Frameworks:**  
 ![.NET Core](https://img.shields.io/badge/.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![ASP.NET MVC](https://img.shields.io/badge/ASP.NET_MVC-68217A?style=for-the-badge&logo=dotnet&logoColor=white)
+![Entity Framework](https://img.shields.io/badge/Entity_Framework-68217A?style=for-the-badge&logo=dotnet&logoColor=white)
+![Dapper](https://img.shields.io/badge/Dapper-0078D7?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node-dot-js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 
-**Databases:**  
+**Databases & Cloud:**  
 ![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+
+**DevOps & Tools:**  
+![Docker](https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![WSL2](https://img.shields.io/badge/WSL2-0078D7?style=for-the-badge&logo=windows-terminal&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual-studio&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 ---
 
-### 🚧 Currently Building: **Macroo**
-> 🥗 A personal health companion designed to help users track daily nutrition, calories, and macros — intelligently.
+### 🚧 Currently Building — **Macroo**
+> 🍽️ *A personal health companion designed to simplify nutrition tracking.*
 
-- 📱 Built with **React Native (Expo Router)** and **Supabase** backend  
-- 🧠 Features **AI-based meal recommendations** and **macro optimization**  
-- 📸 Integrates **barcode scanning** and **meal photo capture**  
-- 📊 Real-time visual analytics with **react-native-chart-kit**  
-- 🧾 Upcoming features: goal tracking, weekly reports, and gamified achievements  
+- Built with **React Native (Expo Router)** and **Supabase (PostgreSQL)**  
+- Features: AI-based recommendations, meal photo capture, barcode scanning  
+- Includes daily & weekly analytics with **react-native-chart-kit**  
+- Implements cloud sync + offline caching for smooth cross-device experience  
+- Future roadmap: gamified achievements, meal suggestions, CSV exports  
 
-🔗 **Repo:** [Macroo — Diet Tracker App (Enhanced Edition)](https://github.com/d3ku010/Macroo---diet-tracker-app)
+🔗 [View Repository → Macroo — Diet Tracker App](https://github.com/d3ku010/Macroo---diet-tracker-app)
 
 ---
 
@@ -86,4 +105,5 @@
   <img src="https://komarev.com/ghpvc/?username=d3ku010&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile views"/>
 </p>
 
-⭐️ *“Currently building something meaningful — one clean commit at a time.”*
+⭐️ *“Currently building something meaningful — one clean commit at a time.”*  
+🗓️ *Last updated: {{DATE}}*
