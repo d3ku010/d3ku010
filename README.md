@@ -71,6 +71,7 @@
 
 ![Ameenul's GitHub Stats](https://github-readme-stats.vercel.app/api?username=d3ku010&show_icons=true&theme=tokyonight&hide_border=true)  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=d3ku010&layout=compact&theme=tokyonight&hide_border=true)  
+![GitHub Streak](https://streak-stats.demolab.com?user=d3ku010&theme=tokyonight&hide_border=true)
 
 </div>
 
@@ -96,10 +97,9 @@
 </a>
 </p>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=d3ku010&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Profile views"/>
-</p>
+---
 
-⭐️ *“Currently building something meaningful — one clean commit at a time.”*  
-🗓️ *Last updated: October 27, 2025
+### 👁️ Unique Profile Visitors  
+![Unique Visits](https://raw.githubusercontent.com/d3ku010/d3ku010/main/visits.svg)
 
+🗓️ *Last updated: {{DATE}} (auto-updated weekly via GitHub Actions)*
