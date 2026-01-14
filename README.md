@@ -24,12 +24,16 @@
 <!--STACK_PANEL_START-->
 **Languages:**
 ![C#](https://img.shields.io/badge/C%23-1f6feb?style=for-the-badge&labelColor=0d1117) ![JavaScript](https://img.shields.io/badge/JavaScript-1f6feb?style=for-the-badge&labelColor=0d1117) ![TypeScript](https://img.shields.io/badge/TypeScript-1f6feb?style=for-the-badge&labelColor=0d1117) ![Python](https://img.shields.io/badge/Python-1f6feb?style=for-the-badge&labelColor=0d1117) ![HTML](https://img.shields.io/badge/HTML-1f6feb?style=for-the-badge&labelColor=0d1117) ![CSS](https://img.shields.io/badge/CSS-1f6feb?style=for-the-badge&labelColor=0d1117) ![Dockerfile](https://img.shields.io/badge/Dockerfile-1f6feb?style=for-the-badge&labelColor=0d1117) ![PLpgSQL](https://img.shields.io/badge/PLpgSQL-1f6feb?style=for-the-badge&labelColor=0d1117)
+
 **Frameworks:**
 ![.NET](https://img.shields.io/badge/.NET-a855f7?style=for-the-badge&labelColor=0d1117) ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-a855f7?style=for-the-badge&labelColor=0d1117) ![Entity Framework](https://img.shields.io/badge/Entity%20Framework-a855f7?style=for-the-badge&labelColor=0d1117) ![Dapper](https://img.shields.io/badge/Dapper-a855f7?style=for-the-badge&labelColor=0d1117) ![React](https://img.shields.io/badge/React-a855f7?style=for-the-badge&labelColor=0d1117) ![React Native](https://img.shields.io/badge/React%20Native-a855f7?style=for-the-badge&labelColor=0d1117)
+
 **Tools:**
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-facc15?style=for-the-badge&labelColor=0d1117) ![Docker](https://img.shields.io/badge/Docker-facc15?style=for-the-badge&labelColor=0d1117) ![Git](https://img.shields.io/badge/Git-facc15?style=for-the-badge&labelColor=0d1117) ![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-facc15?style=for-the-badge&labelColor=0d1117) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-facc15?style=for-the-badge&labelColor=0d1117)
+
 **Databases:**
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-f97316?style=for-the-badge&labelColor=0d1117) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-f97316?style=for-the-badge&labelColor=0d1117) ![SQLite](https://img.shields.io/badge/SQLite-f97316?style=for-the-badge&labelColor=0d1117)
+
 **Cloud:**
 ![Azure](https://img.shields.io/badge/Azure-22c55e?style=for-the-badge&labelColor=0d1117) ![AWS](https://img.shields.io/badge/AWS-22c55e?style=for-the-badge&labelColor=0d1117)
 <!--STACK_PANEL_END-->

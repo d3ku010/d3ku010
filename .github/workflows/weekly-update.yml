@@ -261,8 +261,8 @@ jobs:
             const renderRow = (label, key, values, fallback) => {
               const displayItems = getDisplayItems(values, key);
               return displayItems.length
-                ? `**${label}:**\n${renderBadges(displayItems, key)}`
-                : `**${label}:** ${fallback}`;
+                ? `**${label}:**\n${renderBadges(displayItems, key)}\n`
+                : `**${label}:** ${fallback}\n`;
             };
 
             const languages = aggregateLanguages();
