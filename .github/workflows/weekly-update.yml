@@ -232,8 +232,13 @@ jobs:
               return orderByPreference(unique, key);
             };
 
-            const badgeLabelColor = '0d1117';
-            const badgeColor = '1f6feb';
+            const badgePalette = {
+              languages: { labelColor: '0d1117', color: '1f6feb' },
+              frameworks: { labelColor: '0d1117', color: 'a855f7' },
+              tools: { labelColor: '0d1117', color: 'facc15' },
+              databases: { labelColor: '0d1117', color: 'f97316' },
+              cloud: { labelColor: '0d1117', color: '22c55e' }
+            };
 
             const encodeBadgeLabel = (value) => encodeURIComponent(
               value
@@ -241,17 +246,22 @@ jobs:
                 .replace(/_/g, '__')
             );
 
-            const renderBadges = (values) => values
+            const renderBadges = (values, key) => {
+              const palette = badgePalette[key] || badgePalette.languages;
+              const color = palette.color;
+              const labelColor = palette.labelColor;
+              return values
               .map(value => {
                 const encoded = encodeBadgeLabel(value);
-                return `![${value}](https://img.shields.io/badge/${encoded}-${badgeColor}?style=for-the-badge&labelColor=${badgeLabelColor})`;
+                  return `![${value}](https://img.shields.io/badge/${encoded}-${color}?style=for-the-badge&labelColor=${labelColor})`;
               })
-              .join(' ');
+                .join(' ');
+            };
 
             const renderRow = (label, key, values, fallback) => {
               const displayItems = getDisplayItems(values, key);
               return displayItems.length
-                ? `**${label}:** ${renderBadges(displayItems)}`
+                ? `**${label}:**\n${renderBadges(displayItems, key)}`
                 : `**${label}:** ${fallback}`;
             };
 
