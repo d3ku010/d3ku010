@@ -22,7 +22,7 @@
 
 ## 🧰 Tech Radar *(auto-updated)*
 <!--STACK_PANEL_START-->
-**Languages:** <kbd>C#</kbd> <kbd>JavaScript</kbd> <kbd>TypeScript</kbd> <kbd>HTML</kbd> <kbd>CSS</kbd> <kbd>PLpgSQL</kbd>
+**Languages:** <kbd>C#</kbd> <kbd>JavaScript</kbd> <kbd>TypeScript</kbd> <kbd>Python</kbd> <kbd>HTML</kbd> <kbd>CSS</kbd> <kbd>Dockerfile</kbd> <kbd>PLpgSQL</kbd>
 **Frameworks:** <kbd>.NET</kbd> <kbd>ASP.NET Core</kbd> <kbd>Entity Framework</kbd> <kbd>Dapper</kbd> <kbd>React</kbd> <kbd>React Native</kbd>
 **Tools:** <kbd>GitHub Actions</kbd> <kbd>Docker</kbd> <kbd>Git</kbd> <kbd>Azure DevOps</kbd> <kbd>Visual Studio</kbd>
 **Databases:** <kbd>SQL Server</kbd> <kbd>PostgreSQL</kbd> <kbd>SQLite</kbd>
@@ -42,8 +42,8 @@
 
 ## 📈 Activity Snapshot *(auto-updated)*
 <!--ACTIVITY_METRICS_START-->
-- Past 7 days: 3 commits · 0 PRs · 0 reviews · 0 issues
-- [d3ku010](https://github.com/d3ku010/d3ku010) — 3 commits
+- Past 7 days: 5 commits · 0 PRs · 0 reviews · 0 issues
+- [d3ku010](https://github.com/d3ku010/d3ku010) — 5 commits
 <!--ACTIVITY_METRICS_END-->
 
 > 🔒 *A good chunk of my day-to-day work lives inside private organization repositories.*
