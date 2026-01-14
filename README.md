@@ -22,11 +22,11 @@
 
 ## 🧰 Tech Radar 
 <!--STACK_PANEL_START-->
-**Languages:** <kbd>C#</kbd> <kbd>JavaScript</kbd> <kbd>TypeScript</kbd> <kbd>Python</kbd> <kbd>HTML</kbd> <kbd>CSS</kbd> <kbd>Dockerfile</kbd> <kbd>PLpgSQL</kbd>
-**Frameworks:** <kbd>.NET</kbd> <kbd>ASP.NET Core</kbd> <kbd>Entity Framework</kbd> <kbd>Dapper</kbd> <kbd>React</kbd> <kbd>React Native</kbd>
-**Tools:** <kbd>GitHub Actions</kbd> <kbd>Docker</kbd> <kbd>Git</kbd> <kbd>Azure DevOps</kbd> <kbd>Visual Studio</kbd>
-**Databases:** <kbd>SQL Server</kbd> <kbd>PostgreSQL</kbd> <kbd>SQLite</kbd>
-**Cloud:** <kbd>Azure</kbd> <kbd>AWS</kbd>
+**Languages:** ![C#](https://img.shields.io/badge/C%23-1f6feb?style=for-the-badge&labelColor=0d1117) ![JavaScript](https://img.shields.io/badge/JavaScript-1f6feb?style=for-the-badge&labelColor=0d1117) ![TypeScript](https://img.shields.io/badge/TypeScript-1f6feb?style=for-the-badge&labelColor=0d1117) ![Python](https://img.shields.io/badge/Python-1f6feb?style=for-the-badge&labelColor=0d1117) ![HTML](https://img.shields.io/badge/HTML-1f6feb?style=for-the-badge&labelColor=0d1117) ![CSS](https://img.shields.io/badge/CSS-1f6feb?style=for-the-badge&labelColor=0d1117) ![Dockerfile](https://img.shields.io/badge/Dockerfile-1f6feb?style=for-the-badge&labelColor=0d1117) ![PLpgSQL](https://img.shields.io/badge/PLpgSQL-1f6feb?style=for-the-badge&labelColor=0d1117)
+**Frameworks:** ![.NET](https://img.shields.io/badge/.NET-1f6feb?style=for-the-badge&labelColor=0d1117) ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-1f6feb?style=for-the-badge&labelColor=0d1117) ![Entity Framework](https://img.shields.io/badge/Entity%20Framework-1f6feb?style=for-the-badge&labelColor=0d1117) ![Dapper](https://img.shields.io/badge/Dapper-1f6feb?style=for-the-badge&labelColor=0d1117) ![React](https://img.shields.io/badge/React-1f6feb?style=for-the-badge&labelColor=0d1117) ![React Native](https://img.shields.io/badge/React%20Native-1f6feb?style=for-the-badge&labelColor=0d1117)
+**Tools:** ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-1f6feb?style=for-the-badge&labelColor=0d1117) ![Docker](https://img.shields.io/badge/Docker-1f6feb?style=for-the-badge&labelColor=0d1117) ![Git](https://img.shields.io/badge/Git-1f6feb?style=for-the-badge&labelColor=0d1117) ![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-1f6feb?style=for-the-badge&labelColor=0d1117) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-1f6feb?style=for-the-badge&labelColor=0d1117)
+**Databases:** ![SQL Server](https://img.shields.io/badge/SQL%20Server-1f6feb?style=for-the-badge&labelColor=0d1117) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1f6feb?style=for-the-badge&labelColor=0d1117) ![SQLite](https://img.shields.io/badge/SQLite-1f6feb?style=for-the-badge&labelColor=0d1117)
+**Cloud:** ![Azure](https://img.shields.io/badge/Azure-1f6feb?style=for-the-badge&labelColor=0d1117) ![AWS](https://img.shields.io/badge/AWS-1f6feb?style=for-the-badge&labelColor=0d1117)
 <!--STACK_PANEL_END-->
 
 ---
@@ -42,18 +42,8 @@
 
 ## 📈 Activity Snapshot 
 <!--ACTIVITY_METRICS_START-->
-- Past 7 days: 6 commits · 0 PRs · 0 reviews · 0 issues
-- [d3ku010](https://github.com/d3ku010/d3ku010) — 6 commits
 <!--ACTIVITY_METRICS_END-->
 
-
-<div align="center">
-
-![Ameenul's GitHub Stats](https://github-readme-stats.vercel.app/api?username=d3ku010&show_icons=true&theme=tokyonight&hide_border=true)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=d3ku010&layout=compact&theme=tokyonight&hide_border=true)
-![GitHub Streak](https://streak-stats.demolab.com?user=d3ku010&theme=tokyonight&hide_border=true)
-
-</div>
 
 ---
 
