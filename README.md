@@ -22,11 +22,11 @@
 
 ## 🧰 Tech Radar *(auto-updated)*
 <!--STACK_PANEL_START-->
-- **Languages:** JavaScript (83.8%), C# (5.0%), HTML (4.3%), TypeScript (3.0%), CSS (1.7%), PLpgSQL (1.2%)
-- **Frameworks:** Add repository topics to showcase frameworks
-- **Tools:** Tools will surface as topics are added
-- **Databases:** Publish repos with database topics to populate this list
-- **Cloud:** Cloud providers will appear after the next sync
+**Languages:** <kbd>C#</kbd> <kbd>JavaScript</kbd> <kbd>TypeScript</kbd> <kbd>HTML</kbd> <kbd>CSS</kbd> <kbd>PLpgSQL</kbd>
+**Frameworks:** <kbd>.NET</kbd> <kbd>ASP.NET Core</kbd> <kbd>Entity Framework</kbd> <kbd>Dapper</kbd> <kbd>React</kbd> <kbd>React Native</kbd>
+**Tools:** <kbd>GitHub Actions</kbd> <kbd>Docker</kbd> <kbd>Git</kbd> <kbd>Azure DevOps</kbd> <kbd>Visual Studio</kbd>
+**Databases:** <kbd>SQL Server</kbd> <kbd>PostgreSQL</kbd> <kbd>SQLite</kbd>
+**Cloud:** <kbd>Azure</kbd> <kbd>AWS</kbd>
 <!--STACK_PANEL_END-->
 
 ---

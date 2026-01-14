@@ -112,16 +112,10 @@ jobs:
                   totals[edge.node.name] = (totals[edge.node.name] || 0) + edge.size;
                 }
               }
-              const totalSize = Object.values(totals).reduce((sum, value) => sum + value, 0);
               return Object.entries(totals)
                 .sort((a, b) => b[1] - a[1])
-                .slice(0, 6)
-                .map(([name, size]) => {
-                  if (!totalSize) {
-                    return name;
-                  }
-                  return `${name} (${((size / totalSize) * 100).toFixed(1)}%)`;
-                });
+                .slice(0, 8)
+                .map(([name]) => name);
             };
 
             const topicCounts = {};
@@ -171,6 +165,21 @@ jobs:
                 { match: 'netlify', label: 'Netlify' }
               ]
             };
+            const curatedDefaults = {
+              languages: ['C#', 'JavaScript', 'TypeScript', 'Python', 'SQL'],
+              frameworks: ['.NET', 'ASP.NET Core', 'Entity Framework', 'Dapper', 'React', 'React Native'],
+              tools: ['GitHub Actions', 'Docker', 'Git', 'Azure DevOps', 'Visual Studio'],
+              databases: ['SQL Server', 'PostgreSQL', 'SQLite'],
+              cloud: ['Azure', 'AWS']
+            };
+
+            const priorityOrder = {
+              languages: ['C#', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML', 'CSS'],
+              frameworks: ['.NET', 'ASP.NET Core', 'Entity Framework', 'Dapper', 'React', 'React Native', 'Next.js', 'Node.js', 'Express'],
+              tools: ['GitHub Actions', 'Docker', 'Git', 'Azure DevOps', 'Visual Studio', 'ESLint', 'Prettier'],
+              databases: ['SQL Server', 'PostgreSQL', 'SQLite', 'MongoDB'],
+              cloud: ['Azure', 'AWS', 'GCP', 'Vercel', 'Netlify']
+            };
 
             const collectCategory = (key) => {
               const descriptors = taxonomy[key];
@@ -192,10 +201,45 @@ jobs:
                   unique.push(item);
                 }
               }
-              return unique.slice(0, 5).map(item => item.label);
+              return unique.map(item => item.label);
             };
 
-            const formatList = (items, fallback) => (items.length ? items.join(', ') : fallback);
+            const uniqueList = (items) => {
+              const seen = new Set();
+              const ordered = [];
+              for (const item of items) {
+                if (!item || seen.has(item)) {
+                  continue;
+                }
+                seen.add(item);
+                ordered.push(item);
+              }
+              return ordered;
+            };
+
+            const orderByPreference = (items, key) => {
+              const preferred = priorityOrder[key] || [];
+              const featured = preferred.filter(entry => items.includes(entry));
+              const remainder = items.filter(entry => !preferred.includes(entry)).sort((a, b) => a.localeCompare(b));
+              return [...featured, ...remainder];
+            };
+
+            const getDisplayItems = (items, key) => {
+              const unique = uniqueList(items);
+              if (!unique.length) {
+                return curatedDefaults[key] ? [...curatedDefaults[key]] : [];
+              }
+              return orderByPreference(unique, key);
+            };
+
+            const renderChips = (values) => values.map(value => `<kbd>${value}</kbd>`).join(' ');
+
+            const renderRow = (label, key, values, fallback) => {
+              const displayItems = getDisplayItems(values, key);
+              return displayItems.length
+                ? `**${label}:** ${renderChips(displayItems)}`
+                : `**${label}:** ${fallback}`;
+            };
 
             const languages = aggregateLanguages();
             const frameworks = collectCategory('frameworks');
@@ -204,11 +248,11 @@ jobs:
             const cloud = collectCategory('cloud');
 
             const stackSection = [
-              `- **Languages:** ${formatList(languages, 'Awaiting public repo signals...')}`,
-              `- **Frameworks:** ${formatList(frameworks, 'Add repository topics to showcase frameworks')}`,
-              `- **Tools:** ${formatList(tools, 'Tools will surface as topics are added')}`,
-              `- **Databases:** ${formatList(databases, 'Publish repos with database topics to populate this list')}`,
-              `- **Cloud:** ${formatList(cloud, 'Cloud providers will appear after the next sync')}`
+              renderRow('Languages', 'languages', languages, 'Add public repositories to showcase languages.'),
+              renderRow('Frameworks', 'frameworks', frameworks, 'Share repository topics to surface frameworks.'),
+              renderRow('Tools', 'tools', tools, 'Tools will appear once repository topics are added.'),
+              renderRow('Databases', 'databases', databases, 'Database badges will populate after the next sync.'),
+              renderRow('Cloud', 'cloud', cloud, 'Cloud providers will sync in after topics/tags are added.')
             ].join('\n');
 
             const pinnedRepos = user.pinnedItems.nodes
