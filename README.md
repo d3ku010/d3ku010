@@ -46,7 +46,6 @@
 - [d3ku010](https://github.com/d3ku010/d3ku010) — 6 commits
 <!--ACTIVITY_METRICS_END-->
 
-> 🔒 *A good chunk of my day-to-day work lives inside private organization repositories.*
 
 <div align="center">
 
