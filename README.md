@@ -10,7 +10,7 @@
 
 ---
 
-## 🧭 Status Board *(auto-updated)*
+## 🧭 Status Board 
 <!--STATUS_SECTION_START-->
 - **Current Focus:** Elevating multi-tenant SaaS modules with clean .NET APIs
 - **Learning:** Cloud-native observability patterns across Azure services
@@ -20,7 +20,7 @@
 
 ---
 
-## 🧰 Tech Radar *(auto-updated)*
+## 🧰 Tech Radar 
 <!--STACK_PANEL_START-->
 **Languages:** <kbd>C#</kbd> <kbd>JavaScript</kbd> <kbd>TypeScript</kbd> <kbd>HTML</kbd> <kbd>CSS</kbd> <kbd>PLpgSQL</kbd>
 **Frameworks:** <kbd>.NET</kbd> <kbd>ASP.NET Core</kbd> <kbd>Entity Framework</kbd> <kbd>Dapper</kbd> <kbd>React</kbd> <kbd>React Native</kbd>
@@ -31,7 +31,7 @@
 
 ---
 
-## 🌟 Repo Highlights *(auto-updated)*
+## 🌟 Repo Highlights 
 <!--REPO_HIGHLIGHTS_START-->
 - [CRUDwithDapper](https://github.com/d3ku010/CRUDwithDapper) — Create a simple ASP.NET MVC application with Dapper for performing generic CRUD (Create, Read, Update, Delete) operations. Dapper is a lightweight micro ORM (Object-Relational Mapping) for .NET. · HTML
 - [d3ku010](https://github.com/d3ku010/d3ku010) — No description added yet.
@@ -40,7 +40,7 @@
 
 ---
 
-## 📈 Activity Snapshot *(auto-updated)*
+## 📈 Activity Snapshot 
 <!--ACTIVITY_METRICS_START-->
 - Past 7 days: 3 commits · 0 PRs · 0 reviews · 0 issues
 - [d3ku010](https://github.com/d3ku010/d3ku010) — 3 commits
