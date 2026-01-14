@@ -12,28 +12,38 @@
 
 ## 🧭 Status Board *(auto-updated)*
 <!--STATUS_SECTION_START-->
-Status data pending first automation run.
+- **Current Focus:** Elevating multi-tenant SaaS modules with clean .NET APIs
+- **Learning:** Cloud-native observability patterns across Azure services
+- **Availability:** Open to selective collaboration and mentoring
+- **Note:** Tracking deep dives into performance tuning, testing, and developer experience.
 <!--STATUS_SECTION_END-->
 
 ---
 
 ## 🧰 Tech Radar *(auto-updated)*
 <!--STACK_PANEL_START-->
-Stack insights will appear here after the scheduled workflow refresh.
+- **Languages:** JavaScript (83.8%), C# (5.0%), HTML (4.3%), TypeScript (3.0%), CSS (1.7%), PLpgSQL (1.2%)
+- **Frameworks:** Add repository topics to showcase frameworks
+- **Tools:** Tools will surface as topics are added
+- **Databases:** Publish repos with database topics to populate this list
+- **Cloud:** Cloud providers will appear after the next sync
 <!--STACK_PANEL_END-->
 
 ---
 
 ## 🌟 Repo Highlights *(auto-updated)*
 <!--REPO_HIGHLIGHTS_START-->
-Featured repositories will rotate here after the workflow runs.
+- [CRUDwithDapper](https://github.com/d3ku010/CRUDwithDapper) — Create a simple ASP.NET MVC application with Dapper for performing generic CRUD (Create, Read, Update, Delete) operations. Dapper is a lightweight micro ORM (Object-Relational Mapping) for .NET. · HTML
+- [d3ku010](https://github.com/d3ku010/d3ku010) — No description added yet.
+- [EmployeeAdminPortal](https://github.com/d3ku010/EmployeeAdminPortal) — No description added yet. · C#
 <!--REPO_HIGHLIGHTS_END-->
 
 ---
 
 ## 📈 Activity Snapshot *(auto-updated)*
 <!--ACTIVITY_METRICS_START-->
-Weekly contributions, reviews, and issue stats will be summarized here automatically.
+- Past 7 days: 3 commits · 0 PRs · 0 reviews · 0 issues
+- [d3ku010](https://github.com/d3ku010/d3ku010) — 3 commits
 <!--ACTIVITY_METRICS_END-->
 
 > 🔒 *A good chunk of my day-to-day work lives inside private organization repositories.*
