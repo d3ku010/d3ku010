@@ -16,6 +16,302 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate dynamic README sections
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const workspace = process.env.GITHUB_WORKSPACE;
+            const readmePath = path.join(workspace, 'README.md');
+            const statusPath = path.join(workspace, 'status.json');
+
+            const now = new Date();
+            const toISO = now.toISOString();
+            const from = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            const fromISO = from.toISOString();
+
+            const owner = context.repo.owner;
+
+            const query = `
+              query($login: String!, $from: DateTime!, $to: DateTime!) {
+                user(login: $login) {
+                  repositories(first: 50, privacy: PUBLIC, ownerAffiliations: OWNER, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                    nodes {
+                      name
+                      description
+                      url
+                      stargazerCount
+                      updatedAt
+                      isFork
+                      repositoryTopics(first: 20) {
+                        nodes {
+                          topic {
+                            name
+                          }
+                        }
+                      }
+                      languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                        edges {
+                          size
+                          node {
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                  pinnedItems(first: 6, types: REPOSITORY) {
+                    nodes {
+                      ... on Repository {
+                        name
+                        description
+                        url
+                        stargazerCount
+                        primaryLanguage {
+                          name
+                        }
+                      }
+                    }
+                  }
+                  contributionsCollection(from: $from, to: $to) {
+                    totalCommitContributions
+                    totalPullRequestContributions
+                    totalIssueContributions
+                    totalPullRequestReviewContributions
+                    commitContributionsByRepository(maxRepositories: 5) {
+                      contributions {
+                        totalCount
+                      }
+                      repository {
+                        name
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const data = await github.graphql(query, {
+              login: owner,
+              from: fromISO,
+              to: toISO
+            });
+
+            const user = data.user;
+            const repos = user.repositories.nodes.filter(repo => repo && !repo.isFork);
+
+            const aggregateLanguages = () => {
+              const totals = {};
+              for (const repo of repos) {
+                const langEdges = (repo.languages && repo.languages.edges) ? repo.languages.edges : [];
+                for (const edge of langEdges) {
+                  totals[edge.node.name] = (totals[edge.node.name] || 0) + edge.size;
+                }
+              }
+              const totalSize = Object.values(totals).reduce((sum, value) => sum + value, 0);
+              return Object.entries(totals)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6)
+                .map(([name, size]) => {
+                  if (!totalSize) {
+                    return name;
+                  }
+                  return `${name} (${((size / totalSize) * 100).toFixed(1)}%)`;
+                });
+            };
+
+            const topicCounts = {};
+            for (const repo of repos) {
+              const topicNodes = (repo.repositoryTopics && repo.repositoryTopics.nodes) ? repo.repositoryTopics.nodes : [];
+              for (const node of topicNodes) {
+                if (!node || !node.topic || !node.topic.name) {
+                  continue;
+                }
+                const key = node.topic.name.toLowerCase();
+                topicCounts[key] = (topicCounts[key] || 0) + 1;
+              }
+            }
+
+            const taxonomy = {
+              frameworks: [
+                { match: 'react-native', label: 'React Native' },
+                { match: 'react', label: 'React' },
+                { match: 'next', label: 'Next.js' },
+                { match: 'dotnet', label: '.NET' },
+                { match: 'aspnet', label: 'ASP.NET Core' },
+                { match: 'node', label: 'Node.js' },
+                { match: 'express', label: 'Express' },
+                { match: 'bootstrap', label: 'Bootstrap' }
+              ],
+              tools: [
+                { match: 'docker', label: 'Docker' },
+                { match: 'github-actions', label: 'GitHub Actions' },
+                { match: 'azure-devops', label: 'Azure DevOps' },
+                { match: 'eslint', label: 'ESLint' },
+                { match: 'prettier', label: 'Prettier' },
+                { match: 'git', label: 'Git' }
+              ],
+              databases: [
+                { match: 'sql-server', label: 'SQL Server' },
+                { match: 'postgres', label: 'PostgreSQL' },
+                { match: 'mysql', label: 'MySQL' },
+                { match: 'mongo', label: 'MongoDB' },
+                { match: 'redis', label: 'Redis' },
+                { match: 'sqlite', label: 'SQLite' }
+              ],
+              cloud: [
+                { match: 'azure', label: 'Azure' },
+                { match: 'aws', label: 'AWS' },
+                { match: 'gcp', label: 'GCP' },
+                { match: 'vercel', label: 'Vercel' },
+                { match: 'netlify', label: 'Netlify' }
+              ]
+            };
+
+            const collectCategory = (key) => {
+              const descriptors = taxonomy[key];
+              const results = [];
+              for (const [topic, count] of Object.entries(topicCounts)) {
+                for (const descriptor of descriptors) {
+                  if (topic.includes(descriptor.match)) {
+                    results.push({ label: descriptor.label, count });
+                    break;
+                  }
+                }
+              }
+              results.sort((a, b) => b.count - a.count);
+              const seen = new Set();
+              const unique = [];
+              for (const item of results) {
+                if (!seen.has(item.label)) {
+                  seen.add(item.label);
+                  unique.push(item);
+                }
+              }
+              return unique.slice(0, 5).map(item => item.label);
+            };
+
+            const formatList = (items, fallback) => (items.length ? items.join(', ') : fallback);
+
+            const languages = aggregateLanguages();
+            const frameworks = collectCategory('frameworks');
+            const tools = collectCategory('tools');
+            const databases = collectCategory('databases');
+            const cloud = collectCategory('cloud');
+
+            const stackSection = [
+              `- **Languages:** ${formatList(languages, 'Awaiting public repo signals...')}`,
+              `- **Frameworks:** ${formatList(frameworks, 'Add repository topics to showcase frameworks')}`,
+              `- **Tools:** ${formatList(tools, 'Tools will surface as topics are added')}`,
+              `- **Databases:** ${formatList(databases, 'Publish repos with database topics to populate this list')}`,
+              `- **Cloud:** ${formatList(cloud, 'Cloud providers will appear after the next sync')}`
+            ].join('\n');
+
+            const pinnedRepos = user.pinnedItems.nodes
+              .filter(node => node && node.url)
+              .map(repo => ({
+                name: repo.name,
+                description: repo.description,
+                url: repo.url,
+                stargazerCount: repo.stargazerCount || 0,
+                primaryLanguage: repo.primaryLanguage ? repo.primaryLanguage.name : null
+              }));
+
+            const fallbackRepos = repos
+              .map(repo => ({
+                name: repo.name,
+                description: repo.description,
+                url: repo.url,
+                stargazerCount: repo.stargazerCount || 0,
+                primaryLanguage: (repo.languages && repo.languages.edges && repo.languages.edges.length)
+                  ? repo.languages.edges[0].node.name
+                  : null
+              }))
+              .sort((a, b) => b.stargazerCount - a.stargazerCount);
+
+            const highlightSource = pinnedRepos.length ? pinnedRepos : fallbackRepos;
+            const highlightLines = highlightSource.slice(0, 3).map(repo => {
+              const desc = repo.description ? repo.description.replace(/\r?\n/g, ' ').trim() : 'No description added yet.';
+              const lang = repo.primaryLanguage ? ` · ${repo.primaryLanguage}` : '';
+              const stars = repo.stargazerCount ? ` (⭐ ${repo.stargazerCount})` : '';
+              return `- [${repo.name}](${repo.url}) — ${desc}${lang}${stars}`;
+            });
+
+            const repoSection = highlightLines.length
+              ? highlightLines.join('\n')
+              : 'Add or pin repositories to surface highlights here.';
+
+            const contributions = user.contributionsCollection;
+            const totalsLine = `- Past 7 days: ${contributions.totalCommitContributions} commits · ${contributions.totalPullRequestContributions} PRs · ${contributions.totalPullRequestReviewContributions} reviews · ${contributions.totalIssueContributions} issues`;
+
+            const repoTouchLines = (contributions.commitContributionsByRepository || [])
+              .map(entry => {
+                if (!entry.repository) {
+                  return null;
+                }
+                return `- [${entry.repository.name}](${entry.repository.url}) — ${entry.contributions.totalCount} commits`;
+              })
+              .filter(Boolean)
+              .slice(0, 5);
+
+            const activitySection = [
+              totalsLine,
+              repoTouchLines.length ? repoTouchLines.join('\n') : '- Repos touched: awaiting public commits this week.'
+            ].join('\n');
+
+            const defaultStatus = {
+              currentFocus: 'Designing resilient backend services and UI workflows.',
+              learning: 'Deep-diving into distributed tracing and Azure patterns.',
+              availability: 'Heads-down on shipping features, open to async chats.',
+              note: 'Update status.json to personalize this panel.'
+            };
+
+            let statusData = defaultStatus;
+            if (fs.existsSync(statusPath)) {
+              try {
+                statusData = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
+              } catch (error) {
+                core.warning(`Unable to parse status.json: ${error.message}`);
+              }
+            }
+
+            const statusLines = [
+              statusData.currentFocus ? `- **Current Focus:** ${statusData.currentFocus}` : null,
+              statusData.learning ? `- **Learning:** ${statusData.learning}` : null,
+              statusData.availability ? `- **Availability:** ${statusData.availability}` : null,
+              statusData.note ? `- **Note:** ${statusData.note}` : null
+            ].filter(Boolean);
+
+            const statusSection = statusLines.length
+              ? statusLines.join('\n')
+              : '- Update status.json to broadcast your current focus.';
+
+            const injectSection = (content, marker, replacement) => {
+              const start = `<!--${marker}_START-->`;
+              const end = `<!--${marker}_END-->`;
+              if (!content.includes(start) || !content.includes(end)) {
+                throw new Error(`Marker ${marker} not found in README.md`);
+              }
+              const pattern = new RegExp(`${start}[\\s\\S]*?${end}`);
+              return content.replace(pattern, `${start}\n${replacement}\n${end}`);
+            };
+
+            const readme = fs.readFileSync(readmePath, 'utf8');
+            const updatedReadme = [
+              ['STATUS_SECTION', statusSection],
+              ['STACK_PANEL', stackSection],
+              ['REPO_HIGHLIGHTS', repoSection],
+              ['ACTIVITY_METRICS', activitySection]
+            ].reduce((acc, [marker, value]) => injectSection(acc, marker, value), readme);
+
+            fs.writeFileSync(readmePath, updatedReadme);
+
+            core.info('README dynamic sections updated.');
+
       - name: Track unique visitors
         run: |
           FILE=visits.json
