@@ -1,5 +1,5 @@
 <!-- Typing SVG -->
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Poppins&size=26&duration=3000&pause=1000&color=70A5FD&width=600&lines=👋+Hey%2C+I'm+Ameenul+Firdous;Full+Stack+Developer+%7C+.NET+%7C+React+Native+%7C+CI%2FCD;Currently+Building+Macroo+🍽️)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Poppins&size=26&duration=3000&pause=1000&color=70A5FD&width=600&lines=👋+Hey%2C+I'm+Ameenul+Firdous;Full+Stack+Developer+%7C+.NET+%7C+React+Native+%7C+CI%2FCD)](https://git.io/typing-svg)
 
 ---
 
@@ -49,19 +49,6 @@
 ![Visual Studio](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual-studio&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
----
-
-### 🚧 Currently Building — **Macroo**
-> 🍽️ *A personal health companion designed to simplify nutrition tracking.*
-
-- Built with **React Native (Expo Router)** and **Supabase (PostgreSQL)**  
-- Features: AI-based recommendations, meal photo capture, barcode scanning  
-- Includes daily & weekly analytics with **react-native-chart-kit**  
-- Implements cloud sync + offline caching for smooth cross-device experience  
-- Future roadmap: gamified achievements, meal suggestions, CSV exports  
-
-🔗 [View Repository → Macroo — Diet Tracker App](https://github.com/d3ku010/Macroo---diet-tracker-app)
 
 ---
 
